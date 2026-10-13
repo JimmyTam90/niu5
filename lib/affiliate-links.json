@@ -1,12 +1,9 @@
 {
   "defaultUrl": "https://shop.niu.com/?ref=ghtakjkm",
   "products": {
-    "kqi3-max": "https://shop.niu.com/products/kqi3-max-electric-kick-scooter?ref=ghtakjkm",
-    "kqi3-pro": "https://shop.niu.com/products/kqi3-pro-electric-kick-scooter?ref=ghtakjkm",
-    "kqi2-pro": "https://shop.niu.com/products/kqi2-pro-electric-kick-scooter?ref=ghtakjkm",
-    "kqi1-pro": "https://shop.niu.com/products/kqi1-pro-electric-kick-scooter?ref=ghtakjkm",
-    "kqi-air": "https://shop.niu.com/products/kqi-air-lightest-carbon-fiber-electric-scooter?ref=ghtakjkm",
-    "bqi-c3-pro": "https://shop.niu.com/products/bqi-c3-pro-electric-bike?ref=ghtakjkm",
+    "kqi-air": "https://shop.niu.com/products/niu-kqi-air-lightest-electric-scooter?ref=ghtakjkm",
+    "kqi1-pro": "https://shop.niu.com/products/niu-kqi1pro-electric-scooter-15-5mph-range-14-3-miles?ref=ghtakjkm",
+    "bqi-c3-pro": "https://shop.niu.com/products/niu-bqi-c3-pro-bike?ref=ghtakjkm",
     "all-scooters": "https://shop.niu.com/collections/electric-scooter?ref=ghtakjkm",
     "electric-bikes": "https://shop.niu.com/collections/ebike?ref=ghtakjkm",
     "accessories": "https://shop.niu.com/collections/accessories?ref=ghtakjkm"

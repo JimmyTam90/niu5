@@ -20,7 +20,9 @@ Hub (primegearlab.com) must rewrite BOTH the page and Next assets/public files, 
 - Internal pages use plain `<a href="/niu/...">` so navigation stays under the Hub subpath.
 - Canonicals/sitemap/robots use https://primegearlab.com/niu.
 
-## Affiliate links
+## Affiliate links (updated)
+Broken deep links (404 on NIU's live store) were replaced with live product URLs plus your `?ref=ghtakjkm`. KQi3 Max / KQi3 Pro / KQi2 Pro are no longer in NIU's catalog, so they have no mapping and are hidden.
+
 `lib/affiliate-links.json` holds your exact URLs. `resolveAffiliateUrl(key)` returns them unchanged (fallback: default URL). Every CTA opens with target="_blank" rel="noopener noreferrer".
 
 ## Tracking (env vars, blank = off)
