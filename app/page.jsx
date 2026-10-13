@@ -28,13 +28,13 @@ export default function Home() {
             <div className="order-2 lg:order-1">
               <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">Electric scooters and e-bikes for the daily commute</h1>
               <p className="mt-4 max-w-xl text-lg text-slate-300">
-                Compare NIU's KQi kick scooters, the carbon fiber KQi Air, and the BQi-C3 Pro e-bike, then continue to NIU's store to check current details.
+                Compare NIU&apos;s KQi kick scooters, the carbon fiber KQi Air, and the BQi-C3 Pro e-bike, then continue to NIU&apos;s store to check current details.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 {heroMain && <AffiliateCTA productKey={heroMain.affiliateKey} label={`Shop ${heroMain.name}`} placement="hero_primary" />}
                 <AffiliateCTA productKey="all-scooters" label="Browse all scooters" placement="hero_secondary" variant="dark" className="border border-white/30" />
               </div>
-              <p className="mt-4 text-sm text-slate-400">Affiliate link: we may earn a commission at no extra cost to you. Links open NIU's store in a new tab.</p>
+              <p className="mt-4 text-sm text-slate-400">Affiliate link: we may earn a commission at no extra cost to you. Links open NIU&apos;s store in a new tab.</p>
             </div>
           </div>
         </section>
@@ -49,7 +49,7 @@ export default function Home() {
         <section id="models" className="bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-12">
             <h2 className="text-3xl font-bold">NIU scooters and e-bikes</h2>
-            <p className="mt-2 max-w-2xl text-slate-600">Check NIU's product pages for current specifications, pricing, and availability.</p>
+            <p className="mt-2 max-w-2xl text-slate-600">Check NIU&apos;s product pages for current specifications, pricing, and availability.</p>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {PRODUCTS.map((item) => <ProductCard key={item.id} item={item} placement="product_card" />)}
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="mt-6 flex justify-center">
             <AffiliateCTA productKey="all-scooters" label="Shop NIU scooters" placement="final" />
           </div>
-          <p className="mt-3 text-sm text-slate-500">Affiliate link. Opens NIU's store in a new tab.</p>
+          <p className="mt-3 text-sm text-slate-500">Affiliate link. Opens NIU&apos;s store in a new tab.</p>
         </section>
       </main>
       <Footer />
