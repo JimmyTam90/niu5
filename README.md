@@ -6,15 +6,15 @@
     npm run dev
 
 ## Add your file
-    public/logo.png    -> served publicly at /niu/logo.png
+    public/logo.png    -> loaded from the Spoke origin (https://niu5-ten.vercel.app/logo.png) in production
 Product/category images are NOT local: they hotlink NIU's official Shopify CDN (see `lib/images.js`).
 Products with no verified NIU image (KQi3 Max, KQi3 Pro, KQi2 Pro) are not rendered.
 Run `npm run check:live` locally to see HTTP status for every affiliate URL and image URL.
 
 ## Hub–Spoke (assumed; verify against your Hub vercel.json)
 Hub (primegearlab.com) must rewrite BOTH the page and Next assets/public files, e.g.:
-    { "source": "/niu",        "destination": "https://niu5.vercel.app/" },
-    { "source": "/niu/:path*", "destination": "https://niu5.vercel.app/:path*" }
+    { "source": "/niu",        "destination": "https://niu5-ten.vercel.app/" },
+    { "source": "/niu/:path*", "destination": "https://niu5-ten.vercel.app/:path*" }
 - No `basePath`; `trailingSlash: false`.
 - `assetPrefix` = SPOKE_PROJECT_URL in production, so set it in Vercel env BEFORE building.
 - Internal pages use plain `<a href="/niu/...">` so navigation stays under the Hub subpath.

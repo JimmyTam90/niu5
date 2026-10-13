@@ -1,20 +1,23 @@
 /** @type {import('next').NextConfig} */
-// Hub–Spoke: the Hub rewrites /niu/:path* -> <SPOKE>/:path*, so NO basePath here.
-// assetPrefix points /_next/static/* at the Spoke origin (set SPOKE_PROJECT_URL at BUILD time).
-const spokeOrigin = (process.env.SPOKE_PROJECT_URL || "").replace(/\/+$/, "");
-const useAssetPrefix = process.env.NODE_ENV === "production" && /^https:\/\/[^/]+$/.test(spokeOrigin);
+// Hub–Spoke: primegearlab.com/niu is served by this project (the Spoke) through a rewrite.
+// CSS/JS under /_next/static must load from the Spoke's own origin, otherwise the browser asks
+// primegearlab.com/_next/... (not rewritten) and the page appears unstyled.
+// Override at build time with SPOKE_PROJECT_URL if the Vercel address changes.
+const DEFAULT_SPOKE_ORIGIN = "https://niu5-ten.vercel.app";
+const candidate = (process.env.SPOKE_PROJECT_URL || DEFAULT_SPOKE_ORIGIN).replace(/\/+$/, "");
+const isProd = process.env.NODE_ENV === "production";
+const spokeOrigin = /^https:\/\/[^/]+$/.test(candidate) ? candidate : "";
 
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
-  ...(useAssetPrefix ? { assetPrefix: spokeOrigin } : {}),
   poweredByHeader: false,
-  // Lets the Spoke also answer under the public subpath, so /niu/privacy, /niu/logo.png etc. work
-  // both through the Hub and when the Spoke is opened directly. Does not change basePath or assets.
+  ...(isProd && spokeOrigin ? { assetPrefix: spokeOrigin } : {}),
+  // Exposed to code so public files (logo) can use an absolute Spoke URL in production.
+  env: { NEXT_PUBLIC_SPOKE_ORIGIN: isProd ? spokeOrigin : "" },
+  // Also answer under /niu when the Spoke is opened directly (see v5).
   async rewrites() {
-    return {
-      beforeFiles: [{ source: "/niu/:path*", destination: "/:path*" }],
-    };
+    return { beforeFiles: [{ source: "/niu/:path*", destination: "/:path*" }] };
   },
 };
 
