@@ -9,6 +9,13 @@ const nextConfig = {
   trailingSlash: false,
   ...(useAssetPrefix ? { assetPrefix: spokeOrigin } : {}),
   poweredByHeader: false,
+  // Lets the Spoke also answer under the public subpath, so /niu/privacy, /niu/logo.png etc. work
+  // both through the Hub and when the Spoke is opened directly. Does not change basePath or assets.
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/niu/:path*", destination: "/:path*" }],
+    };
+  },
 };
 
 module.exports = nextConfig;
